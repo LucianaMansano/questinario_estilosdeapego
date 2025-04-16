@@ -1,190 +1,704 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Questionário de Estilos de Apego</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f4ff;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-    }
-    #quiz-container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      max-width: 700px;
-      width: 100%;
-    }
-    h1 {
-      margin-bottom: 10px;
-    }
-    .intro {
-      margin-bottom: 30px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    h2 {
-      margin-bottom: 20px;
-    }
-    .option {
-      margin: 10px 0;
-      padding: 10px 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .option:hover {
-      background-color: #eee;
-    }
-    #result {
-      font-size: 18px;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-    .ebook-sugestao {
-      margin-top: 30px;
-      background-color: #f0e7ff;
-      padding: 20px;
-      border-radius: 12px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubra Seu Estilo de Apego | Psicóloga de Relacionamentos</title>
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #9b59b6;
+            --accent-color: #d8b5ff;
+            --text-color: #333;
+            --light-bg: #f9f4ff;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background-color: var(--white);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 20px;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .section {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+        }
+        
+        .profile-text {
+            flex: 1;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.3);
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            display: none;
+        }
+        
+        .question.active {
+            display: block;
+        }
+        
+        .options {
+            margin-top: 10px;
+        }
+        
+        .option {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .option:hover {
+            background-color: var(--accent-color);
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: var(--light-bg);
+            border-radius: 5px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .testimonial {
+            font-style: italic;
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-size: 60px;
+            position: absolute;
+            color: var(--accent-color);
+            top: -15px;
+            left: 10px;
+            opacity: 0.5;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        .feature-icon {
+            background-color: var(--accent-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon i {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+        
+        .results-container, .ebook-offer {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .apego-tipo {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            background-color: var(--light-bg);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .countdown {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #777;
+            font-size: 1.5rem;
+        }
+        
+        .guarantee {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px dashed #ccc;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <div id="quiz-container">
-    <h1>Descubra Seu Estilo de Apego</h1>
-    <div class="intro">
-      Oi! Seja muito bem-vinda ao nosso espaço de autoconhecimento. 💜<br><br>
-      Esse questionário foi pensado com muito carinho para te ajudar a olhar para seus padrões afetivos com mais consciência e acolhimento. Aqui, não há certo ou errado — só caminhos que podemos entender e, se for preciso, transformar.<br><br>
-      Ao responder, tente ser o mais sincera possível com você mesma. No final, você receberá um resultado com base nas suas respostas, e poderá dar os próximos passos com mais clareza (e até baixar um eBook gratuito!).<br><br>
-      Vamos juntas? 🌷
+    <div class="container">
+        <header>
+            <h1>Descubra Seu Estilo de Apego</h1>
+            <p>Entenda como seus padrões emocionais influenciam seus relacionamentos</p>
+        </header>
+        
+        <!-- Seção de Introdução -->
+        <section id="intro" class="section">
+            <h2>Por que conhecer seu estilo de apego é transformador?</h2>
+            <p>Você já se perguntou por que certos padrões se repetem em seus relacionamentos? A forma como nos conectamos com os outros tem raízes profundas em nossa infância e molda nossa vida adulta.</p>
+            
+            <div class="profile">
+                <img src="/api/placeholder/150/150" alt="Psicóloga especialista em relacionamentos" class="profile-img">
+                <div class="profile-text">
+                    <h3>Olá, sou a Dra. [Seu Nome]</h3>
+                    <p>Como psicóloga especialista em relacionamentos há mais de 10 anos, tenho ajudado centenas de pessoas a compreenderem seus padrões de apego e transformarem suas relações.</p>
+                    <p>Através deste teste gratuito de 15 perguntas, você descobrirá seu estilo predominante de apego e receberá insights valiosos sobre como ele afeta sua vida amorosa.</p>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                "Descobrir meu estilo de apego foi como encontrar a peça que faltava no quebra-cabeça dos meus relacionamentos. Agora consigo entender minhas reações e fazer escolhas mais conscientes." - Maria C.
+            </div>
+            
+            <div class="center">
+                <button id="startQuiz" class="button">Iniciar meu teste gratuito <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </section>
+        
+        <!-- Questionário -->
+        <section id="quiz" class="section" style="display: none;">
+            <h2 class="center">Questionário de Estilos de Apego</h2>
+            <p class="center">Responda com sinceridade para obter resultados precisos.</p>
+            
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            
+            <form id="quizForm">
+                <!-- Questão 1 -->
+                <div class="question active" data-question="1">
+                    <h3>1. Como você reage quando seu parceiro(a) precisa de espaço ou tempo sozinho?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="ansioso"> Fico ansioso(a) e preocupado(a) com o que isso significa para nossa relação
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="evitativo"> Sinto alívio e aproveito meu próprio espaço também
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="seguro"> Entendo a necessidade e uso esse tempo para minhas próprias atividades
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="desorganizado"> Sinto-me confuso(a), ora querendo aproximação, ora querendo distância
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Questão 2 -->
+                <div class="question" data-question="2">
+                    <h3>2. Como você lida com conflitos no relacionamento?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="ansioso"> Tento resolver imediatamente, mesmo que isso signifique ceder
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="evitativo"> Tendo a me afastar e evitar o confronto
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="seguro"> Busco dialogar e encontrar um meio-termo que atenda a ambos
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="desorganizado"> Oscilo entre confrontar intensamente e me afastar completamente
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Questão 3 -->
+                <div class="question" data-question="3">
+                    <h3>3. O que você sente quando alguém se torna emocionalmente próximo de você?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="ansioso"> Felicidade, mas também medo de que a pessoa possa me abandonar
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="evitativo"> Desconforto e vontade de estabelecer limites
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="seguro"> Conforto e segurança na conexão
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="desorganizado"> Uma mistura confusa de desejo e medo
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Adicione as demais questões seguindo o mesmo padrão -->
+                <!-- Para este exemplo, estou incluindo apenas 3 questões completas -->
+                <!-- Na implementação final, você teria as 15 questões -->
+                
+                <div class="question" data-question="4">
+                    <h3>4. Quando seu parceiro(a) está passando por dificuldades, você:</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="ansioso"> Se envolve intensamente, podendo ficar ansioso(a) por não conseguir resolver
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="evitativo"> Oferece apoio prático, mas mantém distância emocional
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="seguro"> Oferece apoio emocional e prático, respeitando o processo da pessoa
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="desorganizado"> Quer ajudar, mas se sente sobrecarregado(a) e pode reagir de forma imprevisível
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question" data-question="5">
+                    <h3>5. Como você reage quando não recebe respostas imediatas a mensagens ou ligações?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="ansioso"> Fico ansioso(a) e começo a pensar no que posso ter feito de errado
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="evitativo"> Não me importo muito, prefiro comunicações com espaço e sem pressão
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="seguro"> Entendo que a pessoa pode estar ocupada e espero pacientemente
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="desorganizado"> Alterna entre raiva, ansiedade e indiferença
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button type="button" id="prevBtn" class="button" style="background-color: #9b59b6; display: none;">Anterior</button>
+                    <button type="button" id="nextBtn" class="button">Próxima</button>
+                    <button type="button" id="submitBtn" class="button" style="display: none;">Ver meu resultado</button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- Resultados do Questionário -->
+        <section id="results" class="section results-container">
+            <h2 class="center">Seu Estilo de Apego Predominante:</h2>
+            
+            <div id="result-ansioso" class="apego-tipo" style="display: none;">
+                <h3>Apego Ansioso</h3>
+                <p>Seu resultado indica um <strong>padrão de apego ansioso</strong>. Pessoas com este estilo tendem a buscar constante reasseguramento nos relacionamentos e podem se preocupar excessivamente com abandono ou rejeição.</p>
+                <p>Este padrão frequentemente se manifesta como:</p>
+                <ul>
+                    <li>Necessidade de aprovação e atenção contínuas</li>
+                    <li>Medo intenso de rejeição ou abandono</li>
+                    <li>Tendência a "testar" o relacionamento</li>
+                    <li>Dificuldade para confiar na constância do amor do parceiro</li>
+                </ul>
+            </div>
+            
+            <div id="result-evitativo" class="apego-tipo" style="display: none;">
+                <h3>Apego Evitativo</h3>
+                <p>Seu resultado indica um <strong>padrão de apego evitativo</strong>. Pessoas com este estilo tendem a valorizar sua independência e podem se sentir desconfortáveis com proximidade emocional excessiva.</p>
+                <p>Este padrão frequentemente se manifesta como:</p>
+                <ul>
+                    <li>Desconforto com intimidade emocional profunda</li>
+                    <li>Valorização da autonomia e independência</li>
+                    <li>Tendência a se distanciar quando o relacionamento fica muito próximo</li>
+                    <li>Dificuldade para expressar necessidades emocionais</li>
+                </ul>
+            </div>
+            
+            <div id="result-seguro" class="apego-tipo" style="display: none;">
+                <h3>Apego Seguro</h3>
+                <p>Seu resultado indica um <strong>padrão de apego seguro</strong>. Pessoas com este estilo geralmente se sentem confortáveis tanto com a intimidade quanto com a autonomia nos relacionamentos.</p>
+                <p>Este padrão frequentemente se manifesta como:</p>
+                <ul>
+                    <li>Equilíbrio saudável entre proximidade e independência</li>
+                    <li>Comunicação aberta sobre necessidades e limites</li>
+                    <li>Capacidade de confiar e ser confiável</li>
+                    <li>Resiliência frente aos desafios do relacionamento</li>
+                </ul>
+            </div>
+            
+            <div id="result-desorganizado" class="apego-tipo" style="display: none;">
+                <h3>Apego Desorganizado</h3>
+                <p>Seu resultado indica um <strong>padrão de apego desorganizado</strong>. Pessoas com este estilo frequentemente experimentam sentimentos conflitantes sobre relacionamentos, desejando proximidade mas também temendo-a.</p>
+                <p>Este padrão frequentemente se manifesta como:</p>
+                <ul>
+                    <li>Comportamentos aparentemente contraditórios nos relacionamentos</li>
+                    <li>Dificuldade para regular emoções intensas</li>
+                    <li>Alternância entre buscar e rejeitar conexão</li>
+                    <li>Desafios para estabelecer confiança duradoura</li>
+                </ul>
+            </div>
+            
+            <p class="center">Este é apenas um ponto de partida para entender seus padrões relacionais. Para uma compreensão mais profunda e ferramentas práticas para transformação, continue lendo abaixo.</p>
+            
+            <div class="center">
+                <button id="showEbookOffer" class="button">Como transformar meu estilo de apego? <i class="fas fa-arrow-down"></i></button>
+            </div>
+        </section>
+        
+        <!-- Oferta do eBook -->
+        <section id="ebook-offer" class="section ebook-offer">
+            <h2 class="center">Transforme Seu Estilo de Apego e Revolucione Seus Relacionamentos</h2>
+            
+            <div class="profile">
+                <img src="/api/placeholder/150/150" alt="eBook Transformando Padrões de Apego" class="profile-img">
+                <div class="profile-text">
+                    <h3>eBook: "Padrões de Apego: O Guia Definitivo para Relacionamentos Saudáveis"</h3>
+                    <p>Como psicóloga especialista em relacionamentos há 10 anos, reuni neste material exclusivo todo meu conhecimento clínico e ferramentas práticas para ajudar você a:</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <div>
+                    <strong>Compreender profundamente</strong> as raízes do seu estilo de apego e como ele se formou
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-clipboard-check"></i></div>
+                <div>
+                    <strong>Exercícios práticos e validados</strong> para desenvolver um estilo de apego mais seguro
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-comment-dots"></i></div>
+                <div>
+                    <strong>Scripts de comunicação</strong> para expressar necessidades e estabelecer limites saudáveis
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                <div>
+                    <strong>Estratégias personalizadas</strong> para seu tipo específico de apego
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <div>
+                    <strong>Técnicas de autocuidado</strong> para fortalecer sua segurança emocional
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                "Depois de aplicar as técnicas do eBook por apenas 3 semanas, percebi uma mudança significativa na forma como me relaciono com meu parceiro. Estamos mais conectados e menos reativos. É como se tivéssemos encontrado uma nova forma de amar." - Carolina M.
+            </div>
+            
+            <div class="center">
+                <p class="countdown">Oferta por tempo limitado!</p>
+                <p><span class="original-price">R$ 97</span> <span class="price">R$ 67</span></p>
+                <a href="#payment" class="button">Quero Transformar Meus Relacionamentos Agora! <i class="fas fa-lock"></i></a>
+            </div>
+            
+            <div class="guarantee">
+                <h3><i class="fas fa-shield-alt"></i> Garantia de 30 dias</h3>
+                <p>Se você não ficar satisfeito com o conteúdo do eBook, devolvemos seu dinheiro integralmente dentro de 30 dias. Sem perguntas.</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Dra. [Seu Nome] | Psicóloga especialista em relacionamentos - CRP XX/XXXXX</p>
+        </footer>
     </div>
-    <h2 id="question"></h2>
-    <div id="options"></div>
-    <div id="result"></div>
-    <div class="ebook-sugestao">
-      ✨ Se você quiser se aprofundar ainda mais no seu estilo de apego, entender as raízes desses padrões e aprender estratégias práticas para se curar e se fortalecer nos relacionamentos, eu preparei um eBook com todo carinho para te acompanhar nessa jornada. 💌<br><br>
-      🌿 Nele, você vai encontrar reflexões, exercícios e caminhos possíveis para desenvolver segurança emocional e construir relações mais saudáveis — começando pela relação com você mesma.<br><br>
-      💡 <strong><a href="#" target="_blank">Clique aqui para conhecer o eBook e começar sua transformação</a></strong> 🌷
-    </div>
-  </div>
-
-  <script>
-    const questions = [
-      {
-        text: "Quando meu parceiro se afasta ou fica distante...",
-        options: [
-          { text: "A) Consigo lidar bem e respeitar o espaço dele", style: "seguro" },
-          { text: "B) Fico ansiosa e tento me reaproximar o quanto antes", style: "ansioso" },
-          { text: "C) Prefiro aproveitar esse tempo sozinha, sem me incomodar", style: "evitativo" },
-          { text: "D) Me sinto confusa: às vezes quero ir atrás, às vezes quero sumir", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Durante um conflito no relacionamento...",
-        options: [
-          { text: "A) Busco conversar e resolver de forma calma", style: "seguro" },
-          { text: "B) Fico muito agitada e temo o fim da relação", style: "ansioso" },
-          { text: "C) Prefiro me afastar para evitar o confronto", style: "evitativo" },
-          { text: "D) Às vezes confronto com intensidade, outras vezes fujo", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Quando penso no futuro do relacionamento...",
-        options: [
-          { text: "A) Sinto segurança e estou aberta a construir junto", style: "seguro" },
-          { text: "B) Tenho medo de ser abandonada", style: "ansioso" },
-          { text: "C) Prefiro não pensar muito nisso, valorizo minha liberdade", style: "evitativo" },
-          { text: "D) Desejo compromisso, mas tenho medo de me entregar", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Quando estou apaixonada...",
-        options: [
-          { text: "A) Demonstro carinho sem medo", style: "seguro" },
-          { text: "B) Me torno muito dependente do outro", style: "ansioso" },
-          { text: "C) Evito mostrar o quanto me importo", style: "evitativo" },
-          { text: "D) Alterno entre me entregar e me afastar", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Quando algo dá errado no relacionamento...",
-        options: [
-          { text: "A) Consigo perdoar e seguir em frente", style: "seguro" },
-          { text: "B) Tenho dificuldade de superar e fico presa na dor", style: "ansioso" },
-          { text: "C) Me distancio para não sofrer mais", style: "evitativo" },
-          { text: "D) Sinto tudo com intensidade e não sei como reagir", style: "desorganizado" },
-        ]
-      },
-    ];
-
-    let currentQuestion = 0;
-    const scores = {
-      seguro: 0,
-      ansioso: 0,
-      evitativo: 0,
-      desorganizado: 0
-    };
-
-    const questionEl = document.getElementById("question");
-    const optionsEl = document.getElementById("options");
-    const resultEl = document.getElementById("result");
-
-    function showQuestion() {
-      const q = questions[currentQuestion];
-      questionEl.textContent = `Pergunta ${currentQuestion + 1}: ${q.text}`;
-      optionsEl.innerHTML = "";
-      q.options.forEach(opt => {
-        const div = document.createElement("div");
-        div.className = "option";
-        div.textContent = opt.text;
-        div.onclick = () => selectOption(opt.style);
-        optionsEl.appendChild(div);
-      });
-    }
-
-    function selectOption(style) {
-      scores[style]++;
-      currentQuestion++;
-      if (currentQuestion < questions.length) {
-        showQuestion();
-      } else {
-        showResult();
-      }
-    }
-
-    function showResult() {
-      const winner = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-      const descriptions = {
-        seguro: "Você tem um estilo de apego SEGURO. Você tende a se sentir confortável com intimidade e confia nas relações de forma equilibrada.",
-        ansioso: "Você tem um estilo de apego ANSIOSO. Você busca validação constante e pode ter medo de rejeição.",
-        evitativo: "Você tem um estilo de apego EVITATIVO. Você valoriza muito sua independência e evita demonstrar vulnerabilidade.",
-        desorganizado: "Você tem um estilo de apego DESORGANIZADO. Seus sentimentos em relação à intimidade e conexão podem ser contraditórios ou caóticos."
-      };
-      resultEl.innerHTML = `
-        <p>${descriptions[winner]}</p>
-        <p>💌 Quer aprofundar e transformar seus padrões de apego? <br>
-        <strong><a href="#" target="_blank">Clique aqui para baixar seu eBook gratuito</a></strong></p>
-        <p>
-          📲 <a href="https://wa.me/5519982512015?text=Olá,%20acabei%20de%20fazer%20o%20quiz%20do%20estilo%20de%20apego%20e%20quero%20saber%20mais!" 
-                 target="_blank" 
-                 style="display:inline-block; padding:10px 20px; background-color:#25D366; color:white; border-radius:8px; text-decoration:none; font-weight:bold;">
-            Fale comigo no WhatsApp
-          </a>
-        </p>
-      `;
-    }
-
-    showQuestion();
-  </script>
+    
+    <script>
+        // Variáveis globais
+        let currentQuestion = 1;
+        const totalQuestions = 5; // Altere para 15 na versão final
+        let answers = {};
+        
+        // Elements
+        const startBtn = document.getElementById('startQuiz');
+        const quizSection = document.getElementById('quiz');
+        const introSection = document.getElementById('intro');
+        const resultsSection = document.getElementById('results');
+        const ebookOfferSection = document.getElementById('ebook-offer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const progressBar = document.getElementById('progress');
+        const showEbookOfferBtn = document.getElementById('showEbookOffer');
+        
+        // Event Listeners
+        startBtn.addEventListener('click', startQuiz);
+        prevBtn.addEventListener('click', showPreviousQuestion);
+        nextBtn.addEventListener('click', showNextQuestion);
+        submitBtn.addEventListener('click', calculateResults);
+        showEbookOfferBtn.addEventListener('click', showEbookOffer);
+        
+        // Functions
+        function startQuiz() {
+            introSection.style.display = 'none';
+            quizSection.style.display = 'block';
+            updateProgress();
+        }
+        
+        function showPreviousQuestion() {
+            if (currentQuestion > 1) {
+                document.querySelector(`.question[data-question="${currentQuestion}"]`).classList.remove('active');
+                currentQuestion--;
+                document.querySelector(`.question[data-question="${currentQuestion}"]`).classList.add('active');
+                
+                if (currentQuestion === 1) {
+                    prevBtn.style.display = 'none';
+                }
+                
+                if (currentQuestion < totalQuestions) {
+                    submitBtn.style.display = 'none';
+                    nextBtn.style.display = 'block';
+                }
+                
+                updateProgress();
+            }
+        }
+        
+        function showNextQuestion() {
+            // Verificar se a questão atual foi respondida
+            const currentRadioName = `q${currentQuestion}`;
+            const isAnswered = document.querySelector(`input[name="${currentRadioName}"]:checked`);
+            
+            // Se não respondida, alertar o usuário
+            if (!isAnswered) {
+                alert('Por favor, responda a pergunta atual antes de continuar.');
+                return;
+            }
+            
+            // Salvar resposta
+            answers[currentRadioName] = document.querySelector(`input[name="${currentRadioName}"]:checked`).value;
+            
+            if (currentQuestion < totalQuestions) {
+                document.querySelector(`.question[data-question="${currentQuestion}"]`).classList.remove('active');
+                currentQuestion++;
+                document.querySelector(`.question[data-question="${currentQuestion}"]`).classList.add('active');
+                
+                prevBtn.style.display = 'block';
+                
+                if (currentQuestion === totalQuestions) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'block';
+                }
+                
+                updateProgress();
+            }
+        }
+        
+        function updateProgress() {
+            const progressPercent = ((currentQuestion - 1) / totalQuestions) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+        }
+        
+        function calculateResults() {
+            // Verificar se a última questão foi respondida
+            const currentRadioName = `q${currentQuestion}`;
+            const isAnswered = document.querySelector(`input[name="${currentRadioName}"]:checked`);
+            
+            if (!isAnswered) {
+                alert('Por favor, responda a pergunta atual antes de continuar.');
+                return;
+            }
+            
+            // Salvar última resposta
+            answers[currentRadioName] = document.querySelector(`input[name="${currentRadioName}"]:checked`).value;
+            
+            // Contar os tipos de apego
+            let counts = {
+                ansioso: 0,
+                evitativo: 0,
+                seguro: 0,
+                desorganizado: 0
+            };
+            
+            // Calcular qual tipo teve mais respostas
+            for (let key in answers) {
+                counts[answers[key]]++;
+            }
+            
+            // Determinar o tipo predominante
+            let predominant = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+            
+            // Exibir os resultados
+            quizSection.style.display = 'none';
+            resultsSection.style.display = 'block';
+            
+            // Mostrar apenas o resultado relevante
+            document.getElementById(`result-${predominant}`).style.display = 'block';
+            
+            // Scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function showEbookOffer() {
+            ebookOfferSection.style.display = 'block';
+            ebookOfferSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
