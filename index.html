@@ -336,7 +336,7 @@
                 <div class="progress" id="progress"></div>
             </div>
 
-            <form id="quizForm">
+           <form id="quizForm">
                 <!-- Questão 1 -->
                 <div class="question active" data-question="1">
                     <h3>1. Como você reage quando seu parceiro(a) precisa de espaço ou tempo sozinho?</h3>
@@ -353,10 +353,6 @@
                         <label class="option">
                             <input type="radio" name="q1" value="desorganizado"> Sinto-me confuso(a), ora querendo aproximação, ora querendo distância
                         </label>
-                    </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn" disabled>Anterior</button>
-                        <button type="button" class="nextBtn">Próxima</button>
                     </div>
                 </div>
                 
@@ -377,10 +373,6 @@
                             <input type="radio" name="q2" value="desorganizado"> Oscilo entre confrontar intensamente e me afastar completamente
                         </label>
                     </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn">Anterior</button>
-                        <button type="button" class="nextBtn">Próxima</button>
-                    </div>
                 </div>
                 
                 <!-- Questão 3 -->
@@ -400,12 +392,9 @@
                             <input type="radio" name="q3" value="desorganizado"> Uma mistura confusa de desejo e medo
                         </label>
                     </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn">Anterior</button>
-                        <button type="button" class="nextBtn">Próxima</button>
-                    </div>
                 </div>
-
+                
+               
                 <div class="question" data-question="4">
                     <h3>4. Quando seu parceiro(a) está passando por dificuldades, você:</h3>
                     <div class="options">
@@ -421,10 +410,6 @@
                         <label class="option">
                             <input type="radio" name="q4" value="desorganizado"> Quer ajudar, mas se sente sobrecarregado(a) e pode reagir de forma imprevisível
                         </label>
-                    </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn">Anterior</button>
-                        <button type="button" class="nextBtn">Próxima</button>
                     </div>
                 </div>
                 
@@ -443,10 +428,6 @@
                         <label class="option">
                             <input type="radio" name="q5" value="desorganizado"> Alterna entre raiva, ansiedade e indiferença
                         </label>
-                    </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn">Anterior</button>
-                        <button type="button" class="nextBtn">Próxima</button>
                     </div>
                 </div>
                 
@@ -467,10 +448,6 @@
                             <input type="radio" name="q6" value="desorganizado"> Deseja intimidade, mas sente-se ameaçado(a) quando ela acontece
                         </label>
                     </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn">Anterior</button>
-                        <button type="button" class="nextBtn">Próxima</button>
-                    </div>
                 </div>
                 
                 <!-- Questão 7 (NOVA) -->
@@ -489,10 +466,6 @@
                         <label class="option">
                             <input type="radio" name="q7" value="desorganizado"> Deseja compromisso, mas teme ser magoado(a) ou abandonado(a)
                         </label>
-                    </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn">Anterior</button>
-                        <button type="button" class="nextBtn">Próxima</button>
                     </div>
                 </div>
                 
@@ -513,10 +486,6 @@
                             <input type="radio" name="q8" value="desorganizado"> Alternar entre exigir atenção e rejeitar aproximação
                         </label>
                     </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn">Anterior</button>
-                        <button type="button" class="nextBtn">Próxima</button>
-                    </div>
                 </div>
                 
                 <!-- Questão 9 (NOVA) -->
@@ -535,10 +504,6 @@
                         <label class="option">
                             <input type="radio" name="q9" value="desorganizado"> Tem dificuldade em identificar ou expressar suas necessidades claramente
                         </label>
-                    </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn">Anterior</button>
-                        <button type="button" class="nextBtn">Próxima</button>
                     </div>
                 </div>
                 
@@ -559,146 +524,170 @@
                             <input type="radio" name="q10" value="desorganizado"> Alterna entre confiar demais e desconfiar sem motivo aparente
                         </label>
                     </div>
-                    <div class="navigation">
-                        <button type="button" class="prevBtn">Anterior</button>
-                        <button type="button" class="submitBtn">Finalizar</button>
+                </div>
+                
+                <!-- Questão 11 (NOVA) -->
+                <div class="question" data-question="11">
+                    <h3>11. Quando você pensa nas experiências passadas com relações próximas, você:</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q11" value="ansioso"> Lembra com frequência das vezes em que se sentiu rejeitado(a) ou abandonado(a)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q11" value="evitativo"> Prefere não pensar muito sobre o passado ou minimiza a importância dessas relações
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q11" value="seguro"> Consegue refletir de forma equilibrada sobre o que aprendeu com cada experiência
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q11" value="desorganizado"> Tem sentimentos contraditórios e confusos sobre suas experiências anteriores
+                        </label>
                     </div>
+                </div>
+                
+                <!-- Questão 12 (NOVA) -->
+                <div class="question" data-question="12">
+                    <h3>12. Como você reage quando seu parceiro(a) expressa admiração por outra pessoa?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q12" value="ansioso"> Sente ciúmes intensos e preocupação sobre o que isso significa para a relação
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q12" value="evitativo"> Não demonstra incômodo, mesmo que internamente possa se sentir desvalorizado(a)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q12" value="seguro"> Sente-se seguro(a) na relação e entende que admiração por outros é natural
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q12" value="desorganizado"> Tem uma reação intensa inicialmente, mas depois tenta parecer indiferente
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Questão 13 (NOVA) -->
+                <div class="question" data-question="13">
+                    <h3>13. Em momentos de estresse pessoal (não relacionados ao relacionamento), você:</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q13" value="ansioso"> Busca imediatamente o apoio e presença constante do parceiro(a)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q13" value="evitativo"> Prefere lidar sozinho(a) e pode se isolar para resolver seus problemas
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q13" value="seguro"> Busca apoio quando necessário, mas também usa recursos próprios para lidar com o estresse
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q13" value="desorganizado"> Fica confuso(a) sobre o que precisa, ora buscando apoio intensamente, ora isolando-se
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Questão 14 (NOVA) -->
+                <div class="question" data-question="14">
+                    <h3>14. Quando seu parceiro(a) comete um erro ou o decepciona, você:</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q14" value="ansioso"> Fica muito abalado(a) e preocupado(a) com o que isso significa para o futuro da relação
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q14" value="evitativo"> Registra mentalmente como prova de que não se deve confiar totalmente em ninguém
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q14" value="seguro"> Expressa seu descontentamento de forma construtiva e trabalha para resolver o problema
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q14" value="desorganizado"> Reage intensamente no momento, mas depois pode minimizar ou negar seus sentimentos
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Questão 15 (NOVA) -->
+                <div class="question" data-question="15">
+                    <h3>15. Em relação às suas conquistas pessoais e profissionais, você:</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q15" value="ansioso"> Frequentemente busca validação e reconhecimento do parceiro(a) para se sentir realizado(a)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q15" value="evitativo"> Valoriza sua independência e realizações individuais acima das conquistas em conjunto
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q15" value="seguro"> Celebra tanto conquistas individuais quanto compartilhadas com seu parceiro(a)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q15" value="desorganizado"> Tem dificuldade em conciliar realizações pessoais com as necessidades da relação
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button type="button" id="prevBtn" class="button" style="background-color: #9b59b6; display: none;">Anterior</button>
+                    <button type="button" id="nextBtn" class="button">Próxima</button>
+                    <button type="button" id="submitBtn" class="button" style="display: none;">Ver meu resultado</button>
                 </div>
             </form>
 
-<style>
-/* Estilo para ocultar todas as questões inicialmente */
-.question {
-    display: none;
-}
-
-/* Mostrar apenas a questão ativa */
-.question.active {
-    display: block;
-}
-
-/* Estilo para os botões de navegação */
-.navigation {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.navigation button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.navigation button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
-
-/* Estilo para as opções */
-.options {
-    margin: 20px 0;
-}
-
-.option {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.option:hover {
-    background-color: #f5f5f5;
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Elementos
-    const questions = document.querySelectorAll('.question');
-    const prevButtons = document.querySelectorAll('.prevBtn');
-    const nextButtons = document.querySelectorAll('.nextBtn');
-    const submitButtons = document.querySelectorAll('.submitBtn');
-    
-    // Função para mostrar uma questão específica
-    function showQuestion(questionNumber) {
-        // Ocultar todas as questões
-        questions.forEach(question => {
-            question.classList.remove('active');
-        });
+ <div class="nav-buttons">
+                    <button type="button" id="prevBtn" class="button" style="background-color: #9b59b6; display: none;">Anterior</button>
+                    <button type="button" id="nextBtn" class="button">Próxima</button>
+                    <button type="button" id="submitBtn" class="button" style="display: none;">Ver meu resultado</button>
+                </div>
+            </form>
+        </section>
         
-        // Mostrar a questão desejada
-        const targetQuestion = document.querySelector(`[data-question="${questionNumber}"]`);
-        if (targetQuestion) {
-            targetQuestion.classList.add('active');
-        }
-    }
-    
-    // Configurar botões de navegação
-    prevButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const currentQuestion = parseInt(this.closest('.question').getAttribute('data-question'));
-            if (currentQuestion > 1) {
-                showQuestion(currentQuestion - 1);
-            }
-        });
-    });
-    
-    nextButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const currentQuestion = parseInt(this.closest('.question').getAttribute('data-question'));
-            if (currentQuestion < questions.length) {
-                showQuestion(currentQuestion + 1);
-            }
-        });
-    });
-    
-    // Configurar botão de envio
-    submitButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Verificar se todas as perguntas foram respondidas
-            let allAnswered = true;
-            for (let i = 1; i <= questions.length; i++) {
-                const radioGroup = document.querySelector(`input[name="q${i}"]:checked`);
-                if (!radioGroup) {
-                    allAnswered = false;
-                    break;
-                }
-            }
+        <!-- Resultados do Questionário -->
+        <section id="results" class="section results-container">
+            <h2 class="center">Seu Estilo de Apego Predominante:</h2>
             
-            if (allAnswered) {
-                // Calcular resultados
-                const results = {
-                    ansioso: 0,
-                    evitativo: 0,
-                    seguro: 0,
-                    desorganizado: 0
-                };
-                
-                for (let i = 1; i <= questions.length; i++) {
-                    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-                    if (selectedOption) {
-                        results[selectedOption.value]++;
-                    }
-                }
-                
-                // Exibir resultados (você pode personalizar esta parte)
-                alert(`Resultados:\nAnsioso: ${results.ansioso}\nEvitativo: ${results.evitativo}\nSeguro: ${results.seguro}\nDesorganizado: ${results.desorganizado}`);
-                
-                // Enviar o formulário ou fazer o que for necessário com os resultados
-                // document.getElementById('quizForm').submit();
-            } else {
-                alert('Por favor, responda todas as perguntas antes de finalizar.');
-            }
-        });
-    });
-});
-</script>
+            <div id="result-ansioso" class="apego-tipo" style="display: none;">
+                <h3>Apego Ansioso</h3>
+                <p>Seu resultado indica um <strong>padrão de apego ansioso</strong>. Pessoas com este estilo tendem a buscar constante reasseguramento nos relacionamentos e podem se preocupar excessivamente com abandono ou rejeição.</p>
+                <p>Este padrão frequentemente se manifesta como:</p>
+                <ul>
+                    <li>Necessidade de aprovação e atenção contínuas</li>
+                    <li>Medo intenso de rejeição ou abandono</li>
+                    <li>Tendência a "testar" o relacionamento</li>
+                    <li>Dificuldade para confiar na constância do amor do parceiro</li>
+                </ul>
+            </div>
+            
+            <div id="result-evitativo" class="apego-tipo" style="display: none;">
+                <h3>Apego Evitativo</h3>
+                <p>Seu resultado indica um <strong>padrão de apego evitativo</strong>. Pessoas com este estilo tendem a valorizar sua independência e podem se sentir desconfortáveis com proximidade emocional excessiva.</p>
+                <p>Este padrão frequentemente se manifesta como:</p>
+                <ul>
+                    <li>Desconforto com intimidade emocional profunda</li>
+                    <li>Valorização da autonomia e independência</li>
+                    <li>Tendência a se distanciar quando o relacionamento fica muito próximo</li>
+                    <li>Dificuldade para expressar necessidades emocionais</li>
+                </ul>
+            </div>
+            
+            <div id="result-seguro" class="apego-tipo" style="display: none;">
+                <h3>Apego Seguro</h3>
+                <p>Seu resultado indica um <strong>padrão de apego seguro</strong>. Pessoas com este estilo geralmente se sentem confortáveis tanto com a intimidade quanto com a autonomia nos relacionamentos.</p>
+                <p>Este padrão frequentemente se manifesta como:</p>
+                <ul>
+                    <li>Equilíbrio saudável entre proximidade e independência</li>
+                    <li>Comunicação aberta sobre necessidades e limites</li>
+                    <li>Capacidade de confiar e ser confiável</li>
+                    <li>Resiliência frente aos desafios do relacionamento</li>
+                </ul>
+            </div>
+            
+            <div id="result-desorganizado" class="apego-tipo" style="display: none;">
+                <h3>Apego Desorganizado</h3>
+                <p>Seu resultado indica um <strong>padrão de apego desorganizado</strong>. Pessoas com este estilo frequentemente experimentam sentimentos conflitantes sobre relacionamentos, desejando proximidade mas também temendo-a.</p>
+                <p>Este padrão frequentemente se manifesta como:</p>
+                <ul>
+                    <li>Comportamentos aparentemente contraditórios nos relacionamentos</li>
+                    <li>Dificuldade para regular emoções intensas</li>
+                    <li>Alternância entre buscar e rejeitar conexão</li>
+                    <li>Desafios para estabelecer confiança duradoura</li>
+                </ul>
+            </div>
+            
             <p class="center">Este é apenas um ponto de partida para entender seus padrões relacionais. Para uma compreensão mais profunda e ferramentas práticas para transformação, continue lendo abaixo.</p>
             
             <div class="center">
@@ -714,7 +703,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="/api/placeholder/150/150" alt="eBook Transformando Padrões de Apego" class="profile-img">
                 <div class="profile-text">
                     <h3>eBook: "Padrões de Apego: O Guia Definitivo para Relacionamentos Saudáveis"</h3>
-                    <p>Como psicóloga especialista há quase 10 anos, reuni neste material exclusivo todo meu conhecimento clínico e ferramentas práticas para ajudar você a:</p>
+                    <p>Como psicóloga especialista em relacionamentos há 10 anos, reuni neste material exclusivo todo meu conhecimento clínico e ferramentas práticas para ajudar você a:</p>
                 </div>
             </div>
             
@@ -764,20 +753,20 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             
             <div class="guarantee">
-                <h3><i class="fas fa-shield-alt"></i> Garantia de entendimento do conteúdo</h3>
-                <p>Se após ler o ebook tiver alguma duvida, entre em contato comigo para batermos um papo que eu te ajudo a entender melhor.</p>
+                <h3><i class="fas fa-shield-alt"></i> Garantia de 30 dias</h3>
+                <p>Se tiver duvidas após ler o conteúdo do eBook, entre em contato que te ajudarei entender melhor.</p>
             </div>
         </section>
         
         <footer>
-            <p>&copy; 2025 Luciana Mansano | Psicóloga de Relacionamentos - CRP 06/13803</p>
+            <p>&copy; 2025 . Luciana Mansano | Psicóloga de Relacionamentos - CRP 06/13803</p>
         </footer>
     </div>
     
     <script>
         // Variáveis globais
         let currentQuestion = 1;
-        const totalQuestions = 5; // Altere para 15 na versão final
+        const totalQuestions = 15; // Altere para 15 na versão final
         let answers = {};
         
         // Elements
