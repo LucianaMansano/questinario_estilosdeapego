@@ -691,6 +691,42 @@
         
         <!-- Oferta do eBook -->
         <section id="ebook-offer" class="section ebook-offer">
+<div id="ebook-ansioso" class="ebook-personalizado" style="display: none;">
+  <p>Se seu estilo de apego é ansioso, o eBook vai te ajudar a:</p>
+  <ul>
+    <li>Reduzir a necessidade constante de validação</li>
+    <li>Fortalecer sua autoestima e segurança emocional</li>
+    <li>Construir vínculos mais estáveis e saudáveis</li>
+  </ul>
+</div>
+
+<div id="ebook-evitativo" class="ebook-personalizado" style="display: none;">
+  <p>Com estilo evitativo, você vai aprender a:</p>
+  <ul>
+    <li>Se sentir seguro ao se conectar emocionalmente</li>
+    <li>Estabelecer vínculos sem perder sua independência</li>
+    <li>Superar o medo de vulnerabilidade</li>
+  </ul>
+</div>
+
+<div id="ebook-seguro" class="ebook-personalizado" style="display: none;">
+  <p>Mesmo com apego seguro, o eBook pode te ajudar a:</p>
+  <ul>
+    <li>Manter sua segurança emocional em diferentes contextos</li>
+    <li>Fortalecer relacionamentos com empatia e clareza</li>
+    <li>Apoiar outras pessoas na jornada emocional delas</li>
+  </ul>
+</div>
+
+<div id="ebook-desorganizado" class="ebook-personalizado" style="display: none;">
+  <p>Se seu estilo é desorganizado, este eBook vai te guiar para:</p>
+  <ul>
+    <li>Compreender e organizar emoções conflitantes</li>
+    <li>Romper ciclos de confusão e instabilidade</li>
+    <li>Construir um novo padrão afetivo, com mais segurança</li>
+  </ul>
+</div>
+
             <h2 class="center">Transforme Seu Estilo de Apego e Revolucione Seus Relacionamentos</h2>
             
             <div class="profile">
@@ -878,6 +914,10 @@
             
             // Mostrar apenas o resultado relevante
             document.getElementById(`result-${predominant}`).style.display = 'block';
+            
+// Armazenar o estilo dominante para uso posterior
+window.estiloApego = predominant;
+
             
             // Scroll to results
             resultsSection.scrollIntoView({ behavior: 'smooth' });
