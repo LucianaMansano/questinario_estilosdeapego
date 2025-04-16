@@ -565,68 +565,140 @@
                     </div>
                 </div>
             </form>
-           
-                <!-- Botões de navegação e envio -->
-                <div class="navigation">
-                    <button type="button" id="prevBtn" disabled>Anterior</button>
-                    <button type="button" id="nextBtn">Próxima</button>
-                    <button type="submit" id="submitBtn" style="display: none;">Finalizar</button>
-                </div>
-            </form>
-        </section>
+
+<style>
+/* Estilo para ocultar todas as questões inicialmente */
+.question {
+    display: none;
+}
+
+/* Mostrar apenas a questão ativa */
+.question.active {
+    display: block;
+}
+
+/* Estilo para os botões de navegação */
+.navigation {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.navigation button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Estilo para as opções */
+.options {
+    margin: 20px 0;
+}
+
+.option {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: #f5f5f5;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos
+    const questions = document.querySelectorAll('.question');
+    const prevButtons = document.querySelectorAll('.prevBtn');
+    const nextButtons = document.querySelectorAll('.nextBtn');
+    const submitButtons = document.querySelectorAll('.submitBtn');
+    
+    // Função para mostrar uma questão específica
+    function showQuestion(questionNumber) {
+        // Ocultar todas as questões
+        questions.forEach(question => {
+            question.classList.remove('active');
+        });
         
-        <!-- Resultados do Questionário -->
-        <section id="results" class="section results-container">
-            <h2 class="center">Seu Estilo de Apego Predominante:</h2>
+        // Mostrar a questão desejada
+        const targetQuestion = document.querySelector(`[data-question="${questionNumber}"]`);
+        if (targetQuestion) {
+            targetQuestion.classList.add('active');
+        }
+    }
+    
+    // Configurar botões de navegação
+    prevButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const currentQuestion = parseInt(this.closest('.question').getAttribute('data-question'));
+            if (currentQuestion > 1) {
+                showQuestion(currentQuestion - 1);
+            }
+        });
+    });
+    
+    nextButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const currentQuestion = parseInt(this.closest('.question').getAttribute('data-question'));
+            if (currentQuestion < questions.length) {
+                showQuestion(currentQuestion + 1);
+            }
+        });
+    });
+    
+    // Configurar botão de envio
+    submitButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Verificar se todas as perguntas foram respondidas
+            let allAnswered = true;
+            for (let i = 1; i <= questions.length; i++) {
+                const radioGroup = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!radioGroup) {
+                    allAnswered = false;
+                    break;
+                }
+            }
             
-            <div id="result-ansioso" class="apego-tipo" style="display: none;">
-                <h3>Apego Ansioso</h3>
-                <p>Seu resultado indica um <strong>padrão de apego ansioso</strong>. Pessoas com este estilo tendem a buscar constante reasseguramento nos relacionamentos e podem se preocupar excessivamente com abandono ou rejeição.</p>
-                <p>Este padrão frequentemente se manifesta como:</p>
-                <ul>
-                    <li>Necessidade de aprovação e atenção contínuas</li>
-                    <li>Medo intenso de rejeição ou abandono</li>
-                    <li>Tendência a "testar" o relacionamento</li>
-                    <li>Dificuldade para confiar na constância do amor do parceiro</li>
-                </ul>
-            </div>
-            
-            <div id="result-evitativo" class="apego-tipo" style="display: none;">
-                <h3>Apego Evitativo</h3>
-                <p>Seu resultado indica um <strong>padrão de apego evitativo</strong>. Pessoas com este estilo tendem a valorizar sua independência e podem se sentir desconfortáveis com proximidade emocional excessiva.</p>
-                <p>Este padrão frequentemente se manifesta como:</p>
-                <ul>
-                    <li>Desconforto com intimidade emocional profunda</li>
-                    <li>Valorização da autonomia e independência</li>
-                    <li>Tendência a se distanciar quando o relacionamento fica muito próximo</li>
-                    <li>Dificuldade para expressar necessidades emocionais</li>
-                </ul>
-            </div>
-            
-            <div id="result-seguro" class="apego-tipo" style="display: none;">
-                <h3>Apego Seguro</h3>
-                <p>Seu resultado indica um <strong>padrão de apego seguro</strong>. Pessoas com este estilo geralmente se sentem confortáveis tanto com a intimidade quanto com a autonomia nos relacionamentos.</p>
-                <p>Este padrão frequentemente se manifesta como:</p>
-                <ul>
-                    <li>Equilíbrio saudável entre proximidade e independência</li>
-                    <li>Comunicação aberta sobre necessidades e limites</li>
-                    <li>Capacidade de confiar e ser confiável</li>
-                    <li>Resiliência frente aos desafios do relacionamento</li>
-                </ul>
-            </div>
-            
-            <div id="result-desorganizado" class="apego-tipo" style="display: none;">
-                <h3>Apego Desorganizado</h3>
-                <p>Seu resultado indica um <strong>padrão de apego desorganizado</strong>. Pessoas com este estilo frequentemente experimentam sentimentos conflitantes sobre relacionamentos, desejando proximidade mas também temendo-a.</p>
-                <p>Este padrão frequentemente se manifesta como:</p>
-                <ul>
-                    <li>Comportamentos aparentemente contraditórios nos relacionamentos</li>
-                    <li>Dificuldade para regular emoções intensas</li>
-                    <li>Alternância entre buscar e rejeitar conexão</li>
-                    <li>Desafios para estabelecer confiança duradoura</li>
-                </ul>
-            </div>
-            
+            if (allAnswered) {
+                // Calcular resultados
+                const results = {
+                    ansioso: 0,
+                    evitativo: 0,
+                    seguro: 0,
+                    desorganizado: 0
+                };
+                
+                for (let i = 1; i <= questions.length; i++) {
+                    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                    if (selectedOption) {
+                        results[selectedOption.value]++;
+                    }
+                }
+                
+                // Exibir resultados (você pode personalizar esta parte)
+                alert(`Resultados:\nAnsioso: ${results.ansioso}\nEvitativo: ${results.evitativo}\nSeguro: ${results.seguro}\nDesorganizado: ${results.desorganizado}`);
+                
+                // Enviar o formulário ou fazer o que for necessário com os resultados
+                // document.getElementById('quizForm').submit();
+            } else {
+                alert('Por favor, responda todas as perguntas antes de finalizar.');
+            }
+        });
+    });
+});
+</script>
             <p class="center">Este é apenas um ponto de partida para entender seus padrões relacionais. Para uma compreensão mais profunda e ferramentas práticas para transformação, continue lendo abaixo.</p>
             
             <div class="center">
