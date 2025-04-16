@@ -11,16 +11,24 @@
       padding: 20px;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-start;
+      min-height: 100vh;
     }
     #quiz-container {
       background-color: #fff;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
+      max-width: 700px;
       width: 100%;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    .intro {
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.6;
     }
     h2 {
       margin-bottom: 20px;
@@ -41,13 +49,33 @@
       margin-top: 20px;
       font-weight: bold;
     }
+    .ebook-sugestao {
+      margin-top: 30px;
+      background-color: #f0e7ff;
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
   <div id="quiz-container">
+    <h1>Descubra Seu Estilo de Apego</h1>
+    <div class="intro">
+      Oi! Seja muito bem-vinda ao nosso espaço de autoconhecimento. 💜<br><br>
+      Esse questionário foi pensado com muito carinho para te ajudar a olhar para seus padrões afetivos com mais consciência e acolhimento. Aqui, não há certo ou errado — só caminhos que podemos entender e, se for preciso, transformar.<br><br>
+      Ao responder, tente ser o mais sincera possível com você mesma. No final, você receberá um resultado com base nas suas respostas, e poderá dar os próximos passos com mais clareza (e até baixar um eBook gratuito!).<br><br>
+      Vamos juntas? 🌷
+    </div>
     <h2 id="question"></h2>
     <div id="options"></div>
     <div id="result"></div>
+    <div class="ebook-sugestao">
+      ✨ Se você quiser se aprofundar ainda mais no seu estilo de apego, entender as raízes desses padrões e aprender estratégias práticas para se curar e se fortalecer nos relacionamentos, eu preparei um eBook com todo carinho para te acompanhar nessa jornada. 💌<br><br>
+      🌿 Nele, você vai encontrar reflexões, exercícios e caminhos possíveis para desenvolver segurança emocional e construir relações mais saudáveis — começando pela relação com você mesma.<br><br>
+      💡 <strong><a href="#" target="_blank">Clique aqui para conhecer o eBook e começar sua transformação</a></strong> 🌷
+    </div>
   </div>
 
   <script>
@@ -62,93 +90,39 @@
         ]
       },
       {
-        text: "Consigo equilibrar minha independência e a proximidade no relacionamento sem medo de perder a conexão.",
+        text: "Durante um conflito no relacionamento...",
         options: [
-          { text: "A) Sim, com facilidade", style: "seguro" },
-          { text: "B) Não, fico ansiosa por mais proximidade", style: "ansioso" },
-          { text: "C) Prefiro manter um espaço pessoal maior", style: "evitativo" },
-          { text: "D) Tento me aproximar, mas depois me afasto", style: "desorganizado" },
+          { text: "A) Busco conversar e resolver de forma calma", style: "seguro" },
+          { text: "B) Fico muito agitada e temo o fim da relação", style: "ansioso" },
+          { text: "C) Prefiro me afastar para evitar o confronto", style: "evitativo" },
+          { text: "D) Às vezes confronto com intensidade, outras vezes fujo", style: "desorganizado" },
         ]
       },
       {
-        text: "Tenho facilidade em confiar nas intenções do meu parceiro.",
+        text: "Quando penso no futuro do relacionamento...",
         options: [
-          { text: "A) Sim, sempre confio nas intenções dele(a)", style: "seguro" },
-          { text: "B) Não, sempre fico inseguro(a) se ele(a) me ama", style: "ansioso" },
-          { text: "C) Prefiro não confiar completamente nas intenções dele(a)", style: "evitativo" },
-          { text: "D) Às vezes confio, mas tenho medo de ser magoado(a)", style: "desorganizado" },
+          { text: "A) Sinto segurança e estou aberta a construir junto", style: "seguro" },
+          { text: "B) Tenho medo de ser abandonada", style: "ansioso" },
+          { text: "C) Prefiro não pensar muito nisso, valorizo minha liberdade", style: "evitativo" },
+          { text: "D) Desejo compromisso, mas tenho medo de me entregar", style: "desorganizado" },
         ]
       },
       {
-        text: "Consigo lidar com conflitos de maneira madura e sem medo excessivo do abandono.",
+        text: "Quando estou apaixonada...",
         options: [
-          { text: "A) Sim, consigo resolver bem sem me preocupar com abandono", style: "seguro" },
-          { text: "B) Fico muito ansioso(a) e tento evitar o conflito", style: "ansioso" },
-          { text: "C) Tento evitar conflitos ou discussões sobre sentimentos", style: "evitativo" },
-          { text: "D) Fico confuso(a), às vezes sinto medo de perder a pessoa", style: "desorganizado" },
+          { text: "A) Demonstro carinho sem medo", style: "seguro" },
+          { text: "B) Me torno muito dependente do outro", style: "ansioso" },
+          { text: "C) Evito mostrar o quanto me importo", style: "evitativo" },
+          { text: "D) Alterno entre me entregar e me afastar", style: "desorganizado" },
         ]
       },
       {
-        text: "Meu relacionamento costuma ser estável, com comunicação aberta e apoio mútuo.",
+        text: "Quando algo dá errado no relacionamento...",
         options: [
-          { text: "A) Sim, tudo flui de maneira equilibrada", style: "seguro" },
-          { text: "B) Não, há muita instabilidade e eu fico inseguro(a)", style: "ansioso" },
-          { text: "C) Prefiro não envolver muito emocionalmente", style: "evitativo" },
-          { text: "D) Meu relacionamento é cheio de altos e baixos, me sinto perdido(a)", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Acredito que mereço amor e respeito nos relacionamentos.",
-        options: [
-          { text: "A) Sim, sempre me senti merecedor(a)", style: "seguro" },
-          { text: "B) Não, às vezes duvido de que mereço ser amado(a)", style: "ansioso" },
-          { text: "C) Prefiro não esperar muito dos outros", style: "evitativo" },
-          { text: "D) Eu me sinto muito inseguro(a) em relação ao amor", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Respeito o espaço do meu parceiro sem me sentir rejeitado(a) ou inseguro(a).",
-        options: [
-          { text: "A) Sim, eu respeito muito esse espaço", style: "seguro" },
-          { text: "B) Não, fico inseguro(a) quando ele(a) precisa de espaço", style: "ansioso" },
-          { text: "C) Prefiro que ele(a) tenha espaço sem me envolver emocionalmente", style: "evitativo" },
-          { text: "D) Me sinto rejeitado(a) e confuso(a) quando ele(a) quer mais espaço", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Demonstro carinho e afeto com naturalidade e sem medo de parecer vulnerável.",
-        options: [
-          { text: "A) Sim, sou carinhoso(a) sem medo", style: "seguro" },
-          { text: "B) Não, tenho medo de demonstrar muito carinho", style: "ansioso" },
-          { text: "C) Prefiro manter uma certa distância e não ser muito afetuoso(a)", style: "evitativo" },
-          { text: "D) Às vezes sou muito afetuoso(a), outras vezes me afasto", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Encaro términos ou distanciamentos como partes normais da vida, sem me desesperar.",
-        options: [
-          { text: "A) Sim, entendo que faz parte", style: "seguro" },
-          { text: "B) Fico desesperado(a) e tento reatar o tempo todo", style: "ansioso" },
-          { text: "C) Prefiro não me envolver emocionalmente para evitar o sofrimento", style: "evitativo" },
-          { text: "D) Fico confuso(a) e sinto que meus sentimentos vão de um extremo ao outro", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Tenho facilidade para perdoar e seguir em frente após desentendimentos.",
-        options: [
-          { text: "A) Sim, consigo superar rápido", style: "seguro" },
-          { text: "B) Não, fico com rancor e medo de repetir o erro", style: "ansioso" },
-          { text: "C) Prefiro não discutir para evitar ressentimentos", style: "evitativo" },
-          { text: "D) Fico muito confuso(a), às vezes me perdoa, outras vezes me afasto", style: "desorganizado" },
-        ]
-      },
-      {
-        text: "Sinto que minha felicidade depende do meu relacionamento amoroso.",
-        options: [
-          { text: "A) Não, sou feliz por conta própria", style: "seguro" },
-          { text: "B) Sim, minha felicidade é influenciada por ele(a)", style: "ansioso" },
-          { text: "C) Não, prefiro não me envolver emocionalmente para não me machucar", style: "evitativo" },
-          { text: "D) Sim, às vezes me sinto preso(a) no relacionamento, mas não consigo me afastar", style: "desorganizado" },
+          { text: "A) Consigo perdoar e seguir em frente", style: "seguro" },
+          { text: "B) Tenho dificuldade de superar e fico presa na dor", style: "ansioso" },
+          { text: "C) Me distancio para não sofrer mais", style: "evitativo" },
+          { text: "D) Sinto tudo com intensidade e não sei como reagir", style: "desorganizado" },
         ]
       },
     ];
@@ -192,17 +166,25 @@
       const winner = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
       const descriptions = {
         seguro: "Você tem um estilo de apego SEGURO. Você tende a se sentir confortável com intimidade e confia nas relações de forma equilibrada.",
-        ansioso: "Você tem um estilo de apego ANSIOSO. Você sente uma necessidade constante de aprovação e teme a rejeição.",
-        evitativo: "Você tem um estilo de apego EVITATIVO. Você valoriza a independência e tende a evitar a vulnerabilidade emocional.",
-        desorganizado: "Você tem um estilo de apego DESORGANIZADO. Você tem um padrão instável e confuso de relacionamento, alternando entre aproximação e afastamento."
+        ansioso: "Você tem um estilo de apego ANSIOSO. Você busca validação constante e pode ter medo de rejeição.",
+        evitativo: "Você tem um estilo de apego EVITATIVO. Você valoriza muito sua independência e evita demonstrar vulnerabilidade.",
+        desorganizado: "Você tem um estilo de apego DESORGANIZADO. Seus sentimentos em relação à intimidade e conexão podem ser contraditórios ou caóticos."
       };
-
-      resultEl.textContent = descriptions[winner];
+      resultEl.innerHTML = `
+        <p>${descriptions[winner]}</p>
+        <p>💌 Quer aprofundar e transformar seus padrões de apego? <br>
+        <strong><a href="#" target="_blank">Clique aqui para baixar seu eBook gratuito</a></strong></p>
+        <p>
+          📲 <a href="https://wa.me/5519982512015?text=Olá,%20acabei%20de%20fazer%20o%20quiz%20do%20estilo%20de%20apego%20e%20quero%20saber%20mais!" 
+                 target="_blank" 
+                 style="display:inline-block; padding:10px 20px; background-color:#25D366; color:white; border-radius:8px; text-decoration:none; font-weight:bold;">
+            Fale comigo no WhatsApp
+          </a>
+        </p>
+      `;
     }
 
     showQuestion();
   </script>
 </body>
 </html>
-
-
